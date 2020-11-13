@@ -52,8 +52,9 @@ public class FriendsController {
     }
 
     @PostMapping("/friends")
-    public FriendsEntity createFriend(@Valid @RequestBody FriendsEntity employee) {
-        return friendsRepository.save(employee);
+    public FriendsEntity createFriend(@Valid @RequestBody FriendsDto friends) {
+
+        return friendsRepository.save(mapper.toEntity(friends));
     }
 
     @PutMapping("/friends/{id}")
@@ -65,17 +66,18 @@ public class FriendsController {
         friends.setEmailId(friendDetails.getEmailId());
         friends.setLastName(friendDetails.getLastName());
         friends.setFirstName(friendDetails.getFirstName());
-        final FriendsEntity friendEmployee = friendsRepository.save(friends);
-        return ResponseEntity.ok(friendEmployee);
+
+        final FriendsEntity friend= friendsRepository.save(friends);
+        return ResponseEntity.ok(friend);
     }
 
     @DeleteMapping("/friends/{id}")
     public Map < String, Boolean > deleteFriend(@PathVariable(value = "id") Long friendId)
             throws ResourceNotFoundException {
-        FriendsEntity employee = friendsRepository.findById(friendId)
+        FriendsEntity friend = friendsRepository.findById(friendId)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " +friendId));
 
-        friendsRepository.delete(employee);
+        friendsRepository.delete(friend);
         Map < String, Boolean > response = new HashMap < > ();
         response.put("deleted", Boolean.TRUE);
         return response;

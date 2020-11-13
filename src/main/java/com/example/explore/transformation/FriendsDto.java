@@ -15,5 +15,5 @@ public class FriendsDto {
     public String firstName;
     public String lastName;
     public String emailId;
-    
+
 }
