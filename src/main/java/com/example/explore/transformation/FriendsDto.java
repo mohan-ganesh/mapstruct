@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class FriendsDto {
-    private long id;
-    private String firstName;
-    private String lastName;
-    private String emailId;
-
+    public long id;
+    public String firstName;
+    public String lastName;
+    public String emailId;
+    
 }

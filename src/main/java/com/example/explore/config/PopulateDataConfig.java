@@ -24,41 +24,25 @@ public class PopulateDataConfig {
     @PostConstruct
     public void initilizeData() {
 
-        FriendsEntity entity = new FriendsEntity();
 
-        entity.setId(1);
-        entity.setFirstName("Yogesh");
-        entity.setLastName("Sharma");
-        entity.setEmailId("yogesh@gmail.com");
-
-        repository.save(entity);
-
-
-        entity = new FriendsEntity();
-
-        entity.setId(2);
-        entity.setFirstName("Mohan");
-        entity.setLastName("Ganesh");
-        entity.setEmailId("mohan@gmail.com");
-
-        repository.save(entity);
 
         FriendsDto data = FriendsDto.builder()
                 .id(1)
-                .firstName("Yogesh-Copy")
+                .firstName("Yogesh")
                 .lastName("Sharma")
-                .emailId("yogesh-copy@gogesh.com")
+                .emailId("yogesh@gogesh.com")
                 .build();
 
          repository.save(mapper.toEntity(data));
 
         data = FriendsDto.builder()
                 .id(2)
-                .firstName("Mohan-copy")
-                .lastName("Ganesh-copy")
+                .firstName("Mohan")
+                .lastName("Ganesh")
+                .emailId("mohan@test.com")
                 .build();
 
-        log.info(mapper.toEntity(data).toString());
+
         repository.save(mapper.toEntity(data));
 
 

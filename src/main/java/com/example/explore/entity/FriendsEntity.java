@@ -18,10 +18,10 @@ public class FriendsEntity {
     private String firstName;
     private String lastName;
     private String emailId;
-    //private String address1;
-    //private String address2;
-    //private String zip;
-    //private String state;
+    private String address1;
+    private String address2;
+    private String zip;
+    private String state;
 
 
     public FriendsEntity() {
@@ -32,6 +32,7 @@ public class FriendsEntity {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
+
 
     }
 
@@ -45,7 +46,7 @@ public class FriendsEntity {
         this.id = id;
     }
 
-    @Column(name = "first_name", nullable = true)
+    @Column(name = "first_name", nullable = false)
     public String getFirstName() {
         return firstName;
     }
@@ -53,7 +54,7 @@ public class FriendsEntity {
         this.firstName = firstName;
     }
 
-    @Column(name = "last_name", nullable = true)
+    @Column(name = "last_name", nullable = false)
     public String getLastName() {
         return lastName;
     }
@@ -69,23 +70,29 @@ public class FriendsEntity {
         this.emailId = emailId;
     }
 
-    /*
+
+
     @Column(name = "address1",nullable = true)
-    public String getAddress1() {return address1;}
-    public void setAddress1() {this.address1 = address1;}
+    public String getAddress1() {
+        return address1;
+    }
+
+    public void setAddress1(String address1) {
+        this.address1 = address1;
+    }
 
     @Column(name = "address2",nullable = true)
     public String getAddress2() {return address2;}
-    public void setAddress2() {this.address2 = address2;}
+    public void setAddress2(String address2) {this.address2 = address2;}
 
     @Column(name = "zip",nullable = true)
     public String getZip() {return zip;}
-    public void setZip() {this.zip = zip;}
+    public void setZip(String zip) {this.zip = zip;}
 
     @Column(name = "state",nullable = true)
     public String getState() {return state;}
-    public void setState() {this.state = state;}
+    public void setState(String state) {this.state = state;}
 
-     */
+
 
 }

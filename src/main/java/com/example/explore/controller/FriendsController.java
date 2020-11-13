@@ -41,13 +41,14 @@ public class FriendsController {
     }
 
     @GetMapping("/friends/{id}")
-    public ResponseEntity <FriendsEntity> getFriendById(@PathVariable(value = "id") Long employeeId)
+    public ResponseEntity <FriendsDto> getFriendById(@PathVariable(value = "id") Long employeeId)
             throws ResourceNotFoundException {
 
         FriendsEntity employee = friendsRepository.findById(employeeId)
                 .orElseThrow(() -> new ResourceNotFoundException("Friend not found for this id :: " + employeeId));
 
-        return ResponseEntity.ok().body(employee);
+
+        return ResponseEntity.ok().body(mapper.toDto(employee));
     }
 
     @PostMapping("/friends")
