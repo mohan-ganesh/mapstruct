@@ -1,14 +1,3 @@
-# mapstruct
-
-
-```
-git clone https://github.com/mohan-ganesh/mapstruct
-```
-
-```
-mvn clean package spring-boot:run
-```
-
-```
-curl -X GET "http://localhost:8080/friends" -H  "accept: */*" 
-```
+call http://localhost:8080/1
+http://localhost:8080/2
+http://localhost:8080/3
